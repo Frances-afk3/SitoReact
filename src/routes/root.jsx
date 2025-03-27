@@ -23,10 +23,11 @@ export default function Root() {
 
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link active" to="/Accedi">Log In</Link>
 
                     </li>
                 </ul>
+                <Link className="navbar-brand nav-link active" to="/Accedi">Log In</Link>
+
             </div>
         </div>
     </nav>

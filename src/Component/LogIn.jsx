@@ -2,78 +2,35 @@ import React from "react";
 
 export default function LogIn() {
     return (
-        <section className="text-center">
-            <div className="p-5 bg-image"></div>
-            <div className="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="margin-top: -100px;backdrop-filter: blur(30px);">
-                <div className="card-body py-5 px-md-5">
-                    <div className="row d-flex justify-content-center">
-                        <div className="col-lg-8">
-                            <h2 className="fw-bold mb-5">Sign up now</h2>
-                            <form>
-                
-                                <div className="row">
-                                    <div className="col-md-6 mb-4">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form3Example1" className="form-control" />
-                                            <label className="form-label" for="form3Example1">First name</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 mb-4">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form3Example2" className="form-control" />
-                                            <label className="form-label" for="form3Example2">Last name</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div data-mdb-input-init className="form-outline mb-4">
-                                    <input type="email" id="form3Example3" className="form-control" />
-                                    <label className="form-label" for="form3Example3">Email address</label>
-                                </div>
-
-
-                                <div data-mdb-input-init className="form-outline mb-4">
-                                    <input type="password" id="form3Example4" className="form-control" />
-                                    <label className="form-label" for="form3Example4">Password</label>
-                                </div>
-
-
-                                <div className="form-check d-flex justify-content-center mb-4">
-                                    <input className="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                    <label className="form-check-label" for="form2Example33">
-                                        Subscribe to our newsletter
-                                    </label>
-                                </div>
-
-
-                                <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-block mb-4">
-                                    Sign up
-                                </button>
-
-                                <div className="text-center">
-                                    <p>or sign up with:</p>
-                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                        <i className="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                        <i className="fab fa-google"></i>
-                                    </button>
-
-                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                        <i className="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-                                        <i className="fab fa-github"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+        <div className="container">
+    <div className="frame">
+        <div className="nav">
+            <ul className="links">
+                <li className="signin-active"><a className="btn">Existing User</a></li>
+                <li className="signup-inactive"><a className="btn">New User</a></li>
+            </ul>
+        </div>
+        <div ng-app ng-init="checked = false">
+            <form className="form-signin" action="" method="post" name="form"> <label for="fullname">Full name</label><input className="form-styling" type="text" name="username" placeholder="" /> <label for="dlno">Driving License Number</label> <input className="form-styling" type="text" name="username" placeholder="" /> <label for="password">Password</label> <input className="form-styling" type="text" name="password" placeholder="" /> <input type="checkbox" id="checkbox" /> <label for="checkbox"><span className="ui"></span>Keep me signed in</label>
+                <div className="btn-animate"> <a className="btn-signin">Login to your account</a> </div>
+            </form>
+            <form className="form-signup" action="" method="post" name="form"> <label for="fullname">Full name</label> <input className="form-styling" type="text" name="email" placeholder="" /><label for="email">Email</label> <input className="form-styling" type="text" name="email" placeholder="" /> <label for="dlno">Enter DL Number</label> <input className="form-styling" type="text" name="dlno" placeholder="" /> <label for="password">Create password</label> <input className="form-styling" type="text" name="confirmpassword" placeholder="" /> <a ng-click="checked = !checked" className="btn-signup">REGISTER</a> </form>
+            <div className="success"> 
+                    <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314 c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042 c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
+                    <div className="successtext">
+                        <p> New User registered, Kindly check your email for confirmation.</p>
                     </div>
-                </div>
             </div>
-        </section>
+        </div>
+        <div className="forgot"> <a href="#">Forgot your password?</a> </div>
+        <div>
+            <div className="cover-photo"></div>
+            <div className="profile-photo"></div>
+            <h1 className="welcome">Welcome,User</h1> <a className="btn-goback" value="Refresh" onClick="history.go()">Go back</a>
+        </div>
+    </div> <a id="refresh" value="Refresh" onClick="history.go()"> <svg className="refreshicon" version="1.1" id="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;" xml:space="preserve">
+            <path d="M321.832,230.327c-2.133-6.565-9.184-10.154-15.75-8.025l-16.254,5.281C299.785,206.991,305,184.347,305,161.224 c0-84.089-68.41-152.5-152.5-152.5C68.411,8.724,0,77.135,0,161.224s68.411,152.5,152.5,152.5c6.903,0,12.5-5.597,12.5-12.5 c0-6.902-5.597-12.5-12.5-12.5c-70.304,0-127.5-57.195-127.5-127.5c0-70.304,57.196-127.5,127.5-127.5 c70.305,0,127.5,57.196,127.5,127.5c0,19.372-4.371,38.337-12.723,55.568l-5.553-17.096c-2.133-6.564-9.186-10.156-15.75-8.025 c-6.566,2.134-10.16,9.186-8.027,15.751l14.74,45.368c1.715,5.283,6.615,8.642,11.885,8.642c1.279,0,2.582-0.198,3.865-0.614 l45.369-14.738C320.371,243.946,323.965,236.895,321.832,230.327z" /> </svg> </a>
+    </div>
 
     );
 }

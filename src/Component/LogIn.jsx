@@ -2,7 +2,6 @@ import React from "react";
 
 export default function LogIn() {
     return (
-        // Section: Design Block
         <section className="text-center">
             <div className="p-5 bg-image"></div>
             <div className="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="margin-top: -100px;backdrop-filter: blur(30px);">

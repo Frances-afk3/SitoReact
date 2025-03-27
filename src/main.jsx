@@ -7,7 +7,7 @@ import ErrorPage from "./error-page";
 import Pacchetti from "./Component/Pacchetti";
 import Album from "./Component/Album";
 import LogIn from "./Component/LogIn";
-
+import Home from "./Component/Home";
 
 import {
   createBrowserRouter,
@@ -21,16 +21,21 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
         {
-          path: "Album", // Aggiungi la rotta per il componente Album
+          path: "Album",
           element: <Album />,
         },
         {
-          path: "Pacchetti", // Aggiungi la rotta per il componente Card
-          element: <Pacchetti />, // Se desideri aggiungere Card come una nuova pagina
+          path: "Pacchetti",
+          element: <Pacchetti />,
         },
         {
-            path: "Accedi", // Aggiungi la rotta per il componente Card
-            element: <LogIn />, // Se desideri aggiungere Card come una nuova pagina
+            path: "Accedi",
+            element: <LogIn />,
+          },
+          {
+            index: true,
+            path: "Home",
+            element: <Home />,
           },
       ],
   },

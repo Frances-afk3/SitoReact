@@ -4,7 +4,7 @@ export default function LogIn() {
     return (
         // Section: Design Block
         <section className="text-center">
-            <div className="p-5 bg-image" style="background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');height: 300px;"></div>
+            <div className="p-5 bg-image"></div>
             <div className="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="margin-top: -100px;backdrop-filter: blur(30px);">
                 <div className="card-body py-5 px-md-5">
                     <div className="row d-flex justify-content-center">

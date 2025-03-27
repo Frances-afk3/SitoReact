@@ -13,13 +13,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    //errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
         {
           path: "Album", // Aggiungi la rotta per il componente Album

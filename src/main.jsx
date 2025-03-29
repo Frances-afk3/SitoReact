@@ -21,6 +21,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
         {
+          index: true,
+          path: "Home",
+          element: <Home />,
+        },
+        {
           path: "Album",
           element: <Album />,
         },
@@ -29,14 +34,10 @@ const router = createBrowserRouter([
           element: <Pacchetti />,
         },
         {
-            path: "Accedi",
-            element: <LogIn />,
-          },
-          {
-            index: true,
-            path: "Home",
-            element: <Home />,
-          },
+          path: "Accedi",
+          element: <LogIn />,
+        },
+        
       ],
   },
 ]);

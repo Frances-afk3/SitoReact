@@ -2,58 +2,80 @@ import React from "react";
 
 export default function LogIn() {
     return (
-        <div class="container">
-            <div class="row full-height justify-content-center">
-                <div class="col-12 text-center align-self-center py-5">
-                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                        <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-                        <label for="reg-log"></label>
-                        <div class="card-3d-wrap mx-auto">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="center-wrap">
-                                        <div class="section text-center">
-                                            <h4 class="mb-4 pb-3">Log In</h4>
-                                            <div class="form-group">
-                                                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>	
-                                            <div class="form-group mt-2">
-                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
-                                                <i class="bi bi-lock"></i>
-                                            </div>
-                                            <a href="#" class="btn mt-4">submit</a>
-                                            <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+        <div className="top-content">
+        	
+            <div className="inner-bg">
+                <div className="container">
+                	
+                    
+                    <div className="row">
+                        
+                        <div className="col-sm-5 bg-light p-0 rounded border border-secondary">
+                        	
+                        	<div className="form-box">
+	                        	<div className="form-top">
+	                        		<div className="form-top-left ms-3">
+	                        			<h3>Login to our site</h3>
+	                            		<p>Enter username and password to log on:</p>
+	                        		</div>
+	                        		
+	                            </div>
+	                            <div className="form-bottom bg-dark-subtle pr-0">
+				                    <form role="form" action="" method="post" className="login-form">
+				                    	<div className="m-3 pt-3">
+				                        	<input type="text" name="form-username" placeholder="Username..." className="form-username form-control" id="form-username"/>
+				                        </div>
+				                        <div className="m-3">
+				                        	<input type="password" name="form-password" placeholder="Password..." className="form-password form-control" id="form-password"/>
+				                        </div>
+                                        <div className="text-center">
+				                            <button type="submit" className="btn btn-dark">Log In!</button>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <div class="center-wrap">
-                                        <div class="section text-center">
-                                            <h4 class="mb-4 pb-3">Sign Up</h4>
-                                            <div class="form-group">
-                                                <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off"/>
-                                                <i class="input-icon uil uil-user"></i>
-                                            </div>	
-                                            <div class="form-group mt-2">
-                                                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
-                                                <i class="input-icon uil uil-at"></i>
-                                            </div>	
-                                            <div class="form-group mt-2">
-                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
-                                                <i class="bi bi-lock"></i>
-                                            </div>
-                                            <a href="#" class="btn mt-4">submit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+				                    </form>
+			                    </div>
+		                    </div>
+	                        
                         </div>
+                        
+                        <div className="col-sm-1 middle-border"></div>
+                        <div className="col-sm-1 middle-border"></div>
+                                
+                            <div className="col-sm-5 bg-light p-0 rounded border border-secondary">
+                           
+                                <div className="form-box">
+                                    <div className="form-top">
+                                        <div className="form-top-left ms-3">
+                                            <h3>Sign up now</h3>
+                                            <p>Fill in the form below to get instant access:</p>
+                                        </div>
+                                    </div>
+                                    <div className="form-bottom bg-dark-subtle pr-0">
+                                        <form role="form" action="" method="post" className="registration-form">
+                                            <div className="m-3 pt-3">
+                                                <input type="text" name="form-first-name" placeholder="First name..." className="form-first-name form-control" id="form-first-name"/>
+                                            </div>
+                                            <div className="m-3 pt-3">
+                                                <input type="text" name="form-last-name" placeholder="Last name..." className="form-last-name form-control" id="form-last-name"/>
+                                            </div>
+                                            <div className="m-3 pt-3">
+                                                <input type="email" name="form-email" placeholder="Email..." className="form-email form-control" id="form-email"/>
+                                            </div>
+                                            <div className="m-3 pt-3">
+                                                <input type="password" name="form-email" placeholder="Password..." className="form-email form-control" id="form-email"/>
+                                            </div>
+                                            <div className="text-center">
+                                                <button type="submit" className="btn btn-dark">Sign me up!</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
                     </div>
+                    
                 </div>
             </div>
+            
         </div>
-
     );
 }

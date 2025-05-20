@@ -4,7 +4,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 
 const app = express();
 
-const mongoURL = 'mongodb+srv://User:User@cluster0.0hrxu0l.mongodb.net/';
+const mongoURL = 'mongodb+srv://********:*******@cluster0.0hrxu0l.mongodb.net/';
 const port = 3005;
 const client = new MongoClient(mongoURL);
 

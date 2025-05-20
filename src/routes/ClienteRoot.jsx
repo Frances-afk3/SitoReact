@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { useAuth } from "../AuthContext";
 export default function ClienteRoot() {
+  const { user, logout } = useAuth();
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark pt-0">

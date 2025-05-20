@@ -1,11 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
+import { useAuth  } from "../AuthContext";
 
-const user = {
-  username: "ristorante123",
-  role: "restaurant",
-};
 
 export default function RistoranteRoot() {
+  const { user, logout } = useAuth();
   return (
     <>
       <nav className="navbar navbar-expand navbar-light bg-warning">

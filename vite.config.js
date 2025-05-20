@@ -10,7 +10,11 @@ export default defineConfig({
     host: true,
     port: 5173,
     strictPort: true,
-    allowedHosts: ngrokHost ? [ngrokHost] : []
+    allowedHosts: ngrokHost ? [ngrokHost] : [],
+    proxy: {
+      '/user': 'http://localhost:3005',
+      '/ristorante': 'http://localhost:3005',
+    },
   }
 });
 

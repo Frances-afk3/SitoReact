@@ -1,81 +1,125 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
 
-export default function LogIn() {
-    return (
-        <div className="top-content">
-        	
-            <div className="inner-bg">
-                <div className="container">
-                	
-                    
-                    <div className="row">
-                        
-                        <div className="col-sm-5 bg-light p-0 rounded border border-secondary">
-                        	
-                        	<div className="form-box">
-	                        	<div className="form-top">
-	                        		<div className="form-top-left ms-3">
-	                        			<h3>Login to our site</h3>
-	                            		<p>Enter username and password to log on:</p>
-	                        		</div>
-	                        		
-	                            </div>
-	                            <div className="form-bottom bg-dark-subtle pr-0">
-				                    <form role="form" action="" method="post" className="login-form">
-				                    	<div className="m-3 pt-3">
-				                        	<input type="text" name="form-username" placeholder="Username..." className="form-username form-control" id="form-username"/>
-				                        </div>
-				                        <div className="m-3">
-				                        	<input type="password" name="form-password" placeholder="Password..." className="form-password form-control" id="form-password"/>
-				                        </div>
-                                        <div className="text-center">
-				                            <button type="submit" className="btn btn-dark">Log In!</button>
-                                        </div>
-				                    </form>
-			                    </div>
-		                    </div>
-	                        
-                        </div>
-                        
-                        <div className="col-sm-1 middle-border"></div>
-                        <div className="col-sm-1 middle-border"></div>
-                                
-                            <div className="col-sm-5 bg-light p-0 rounded border border-secondary">
-                           
-                                <div className="form-box">
-                                    <div className="form-top">
-                                        <div className="form-top-left ms-3">
-                                            <h3>Sign up now</h3>
-                                            <p>Fill in the form below to get instant access:</p>
-                                        </div>
-                                    </div>
-                                    <div className="form-bottom bg-dark-subtle pr-0">
-                                        <form role="form" action="" method="post" className="registration-form">
-                                            <div className="m-3 pt-3">
-                                                <input type="text" name="form-first-name" placeholder="First name..." className="form-first-name form-control" id="form-first-name"/>
-                                            </div>
-                                            <div className="m-3 pt-3">
-                                                <input type="text" name="form-last-name" placeholder="Last name..." className="form-last-name form-control" id="form-last-name"/>
-                                            </div>
-                                            <div className="m-3 pt-3">
-                                                <input type="email" name="form-email" placeholder="Email..." className="form-email form-control" id="form-email"/>
-                                            </div>
-                                            <div className="m-3 pt-3">
-                                                <input type="password" name="form-email" placeholder="Password..." className="form-email form-control" id="form-email"/>
-                                            </div>
-                                            <div className="text-center">
-                                                <button type="submit" className="btn btn-dark">Sign me up!</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    );
+export default function AuthForm() {
+  const [isLogin, setIsLogin] = useState(true); // true = login, false = register
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const resetForm = () => {
+    setNome("");
+    setEmail("");
+    setPassword("");
+    setError("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const url = isLogin
+        ? "http://localhost:3005/user/login"
+        : "http://localhost:3005/user";
+
+      const bodyData = isLogin
+        ? { email, password }
+        : { nome, email, password };
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bodyData),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.error || "Errore nel login/registrazione");
+      }
+
+      const data = await response.json();
+
+      // Salva utente e token nel context
+      login(data.user, data.token);
+
+      // Reindirizza alla home
+      navigate("/");
+
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: 400, margin: "auto" }}>
+      <h2>{isLogin ? "Accedi" : "Registrati"}</h2>
+
+      <form onSubmit={handleSubmit}>
+        {!isLogin && (
+          <input
+            type="text"
+            placeholder="Nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+        )}
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <button type="submit">{isLogin ? "Login" : "Registrati"}</button>
+      </form>
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <p style={{ marginTop: 20 }}>
+        {isLogin ? (
+          <>
+            Non hai un account?{" "}
+            <button
+              type="button"
+              onClick={() => {
+                setIsLogin(false);
+                resetForm();
+              }}
+            >
+              Registrati
+            </button>
+          </>
+        ) : (
+          <>
+            Hai già un account?{" "}
+            <button
+              type="button"
+              onClick={() => {
+                setIsLogin(true);
+                resetForm();
+              }}
+            >
+              Accedi
+            </button>
+          </>
+        )}
+      </p>
+    </div>
+  );
 }

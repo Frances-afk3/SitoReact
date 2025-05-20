@@ -1,47 +1,44 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import Root from "./routes/root";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Layout
+import ClienteRoot from "./routes/ClienteRoot";
+import RistoranteRoot from "./routes/RistoranteRoot";
 import ErrorPage from "./error-page";
 
-//Import da Component
-import Pacchetti from "./Component/Pacchetti";
-import Album from "./Component/Album";
-import LogIn from "./Component/LogIn";
-import Home from "./Component/Home";
+// Clienti
+import Home from "./Component/Clienti/Home";
+import Album from "./Component/Clienti/Album";
+import Pacchetti from "./Component/Clienti/Pacchetti";
+import LogIn from "./Component/Clienti/LogIn";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+// Ristorante (aggiungi questi file!)
+import RistoranteDashboard from "./Component/Ristorante/Dashboard";
+import RistoranteOrdini from "./Component/Ristorante/Ordini";
+import RistoranteMenu from "./Component/Ristorante/Menu";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <ClienteRoot />,
     errorElement: <ErrorPage />,
     children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "Album",
-          element: <Album />,
-        },
-        {
-          path: "Pacchetti",
-          element: <Pacchetti />,
-        },
-        {
-          path: "Accedi",
-          element: <LogIn />,
-        },
-        {
-          path:"Home",
-          element: <Home />,
-        },
-        
-      ],
+      { index: true, element: <Home /> },
+      { path: "Home", element: <Home /> },
+      { path: "Album", element: <Album /> },
+      { path: "Pacchetti", element: <Pacchetti /> },
+      { path: "Accedi", element: <LogIn /> },
+    ],
+  },
+  {
+    path: "/ristorante",
+    element: <RistoranteRoot />,
+    children: [
+      { index: true, element: <RistoranteDashboard /> },
+      { path: "ordini", element: <RistoranteOrdini /> },
+      { path: "menu", element: <RistoranteMenu /> },
+    ],
   },
 ]);
 
@@ -50,3 +47,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
